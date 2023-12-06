@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Clock</title>
+<!--    <link href="css/default.css" rel="stylesheet" /> -->
+	<style>
+		#hEkran {
+			height: 25%;
+			width: 50%;
+			margin: 6px 0;
+			padding: 6px 6px;
+			border-radius: 4px;
+			border: 1px solid #071013ff;
+			background-color: #071013ff;
+			color: #f9aa33ff;
+			font-family: 'Courier New';
+			font-size: 24px;
+			text-align: center;
+			display: inline-block;
+		}
+
+		.button1 {
+			width: 92%;
+			margin: 3px 0;
+			padding: 6px 3px;
+			border-radius: 8px;
+			border: 1px solid #f9aa33ff;
+			background-color: #f9aa33ff;
+			color: #071013;
+			text-align: center;
+			font-size: 48px;
+			font-weight: bold;
+			font-family: 'Courier New', Courier, monospace;
+			box-sizing: border-box;
+			cursor: pointer;
+			/*display: inline-block;*/
+		}
+
+		.button2 {
+			width: 30%;
+			margin: 3px 0;
+			padding: 6px 3px;
+			border-radius: 4px;
+			border: 2px solid #f9aa33ff;
+			background-color: #f9aa33ff;
+			color: #071013;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			font-family: 'Courier New', Courier, monospace;
+			box-sizing: border-box;
+			cursor: pointer;
+			/*display: inline-block;*/
+		}
+
+		.button3 {
+			width: 20%;
+			margin: 1px 0;
+			padding: 0px 0px;
+			border-radius: 4px;
+			border: 0px solid #dee7e7;
+			background-color: #df2935;
+			color: #dee7e7;
+			text-align: center;
+			font-size: 36px;
+			font-weight: bold;
+			box-sizing: border-box;
+			cursor: pointer;
+			/*display: inline-block;*/
+		}
+
+		.button4 {
+			width: 10%;
+			margin: 1px 0;
+			padding: 0px 0px;
+			border-radius: 4px;
+			border: 2px solid #df2935;
+			background-color: #df2935;
+			color: #dee7e7;
+			text-align: center;
+			font-size: 36px;
+			font-weight: bold;
+			box-sizing: border-box;
+			cursor: pointer;
+			/*display: inline-block;*/
+		}
+
+		.button5 {
+			width: 30%;
+			margin: 3px 0;
+			padding: 12px 3px;
+			border-radius: 4px;
+			border: 2px solid #c2beb3;
+			background-color: #c2beb3;
+			color: #344955ff;
+			text-align: center;
+			font-size: 16px;
+			font-weight: bold;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			cursor: pointer;
+			/*display: inline-block;*/
+		}
+
+		.button6 {
+			width: 60%;
+			margin: 3px 0;
+			padding: 12px 3px;
+			border-radius: 4px;
+			border: 2px solid #c2beb3;
+			background-color: #c2beb3;
+			color: #344955ff;
+			text-align: center;
+			font-size: 16px;
+			font-weight: bold;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			cursor: pointer;
+			/*display: inline-block;*/
+		}
+
+		.input1 {
+			width: 30%;
+			margin: 3px 0;
+			padding: 6px 3px;
+			border-radius: 4px;
+			border: 2px solid #ccc;
+			background-color: #344955ff;
+			color: #dee7e7;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			font-family: 'Courier New', Courier, monospace;
+			box-sizing: border-box;
+			/*display: inline-block;*/
+		}
+
+		.input2 {
+			width: 92%;
+			margin: 3px 0;
+			padding: 6px 3px;
+			border-radius: 8px;  
+			border: 2px solid #ccc;
+			background-color: #344955ff;
+			color: #f9aa33ff;
+			text-align: center;
+			font-size: 48px;
+			font-weight: bold;
+			font-family: 'Courier New', Courier, monospace;
+			box-sizing: border-box;
+			/*display: inline-block;*/
+		}
+
+		div {
+			width: 98%;
+			height: 100%;
+			padding: 3px;
+			border-radius: 5px;
+			/*background-color:#4a6572ff;*/
+			color: wheat;
+			text-align: center;
+			font-size: 12px;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+
+		.info-popup {
+  			position: absolute;
+			width: 80%;
+			height: auto;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			display: none;
+			/*padding: 10px;*/
+			background-color: #c2beb3;
+			border: none;
+			z-index: 9;
+		}
+		.info-container {
+			text-align: center;
+			/*padding: 10px;*/
+			background-color: #c2beb3;
+			color: #344955ff;
+			font-size: 16px;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+		.info-container .btn {
+			width: 50%;
+			height: auto;
+			margin: 3px 6px;
+			padding: 3px 12px;
+			border-radius: 4px;
+			border: 2px solid #344955ff;
+			background-color: #344955ff;
+			color: #c2beb3;
+			text-align: center;
+			font-size: 18px;
+			font-weight: bold;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+		body {
+			background-image: url('BGTrbl2.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;  
+			background-size: cover;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+    <div align = "center">
+	<p id="hEkran"></p>
+	<p>
+	<canvas id="myCanvas" style="border:0px;">
+	Your browser does not support the HTML canvas tag.</canvas>
+	</p>	
+	</div>
+    
+	<p id="p2" align = "center" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">...Izleme Metni...</p>
+	<script>
+
+		const tarihZaman = new Date();
+		const gostergeSaat = document.getElementById("hEkran");
+		const gostergeGenl = document.getElementById("p2");
+		const yariCap = 100;
+		var saat, dakika, saniye;
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		var koorXsaniye = 0;
+		var koorYsaniye = 0;
+		var koorXdakika = 0;
+		var koorYdakika = 0;
+		var koorXsaat = 0;
+		var koorYsaat = 0;
+
+		c.width = yariCap * 2 + 2;
+		c.height = yariCap * 2 + 2;
+
+		//saat = tarihZaman.getHours();
+		//dakika = tarihZaman.getMinutes();
+		//saniye = tarihZaman.getSeconds();
+
+		saat = 0;
+		dakika = 21;
+		saniye = 45;
+
+		dakika = dakika + saniye / 60;
+		saat = saat + dakika / 60;
+
+		setInterval(function() {
+			
+			gostergeSaat.innerHTML = ('0' + Math.floor(saat).toFixed()).slice(-2) + ":" + ('0' + Math.floor(dakika).toFixed()).slice(-2) + ":" + ('0' + Math.floor(saniye).toFixed()).slice(-2);
+			
+			koorXsaniye = yariCap + Math.sin(saniye * 6 * Math.PI/180) * yariCap;
+			koorYsaniye = yariCap - Math.cos(saniye * 6 * Math.PI/180) * yariCap;
+			koorXdakika = yariCap + Math.sin(dakika * 6 * Math.PI/180) * yariCap * 0.8;
+			koorYdakika = yariCap - Math.cos(dakika * 6 * Math.PI/180) * yariCap * 0.8;
+			koorXsaat = yariCap + Math.sin(saat * 30 * Math.PI/180) * yariCap * 0.6;
+			koorYsaat = yariCap - Math.cos(saat * 30 * Math.PI/180) * yariCap * 0.6;
+			
+			ctx.clearRect(0, 0, yariCap * 2, yariCap * 2);
+			
+			ctx.font = "20px Courier New";
+			
+			ctx.beginPath();
+			ctx.arc(yariCap + 1, yariCap + 1, yariCap, 0, 2 * Math.PI);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.strokeStyle = "red";
+			ctx.moveTo(yariCap, yariCap);
+			ctx.lineTo(koorXsaniye, koorYsaniye);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.strokeStyle = "blue";
+			ctx.moveTo(yariCap, yariCap);
+			ctx.lineTo(koorXdakika, koorYdakika);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.strokeStyle = "black";
+			ctx.moveTo(yariCap, yariCap);
+			ctx.lineTo(koorXsaat, koorYsaat);
+			ctx.stroke();
+
+			if (Math.round(saat % 12).toFixed() == 12 || Math.round(saat % 12).toFixed() == 0) {ctx.fillText("12", yariCap * 0.9, yariCap * 0.15);}
+			if (Math.round(saat % 12).toFixed() == 1)  {ctx.fillText("1", yariCap * 1.4, yariCap * 0.27);}
+			if (Math.round(saat % 12).toFixed() == 2)  {ctx.fillText("2", yariCap * 1.76, yariCap * 0.6);}
+			if (Math.round(saat % 12).toFixed() == 3)  {ctx.fillText("3", yariCap * 1.89, yariCap);}
+			if (Math.round(saat % 12).toFixed() == 4)  {ctx.fillText("4", yariCap * 1.76, yariCap * 1.5);}
+			if (Math.round(saat % 12).toFixed() == 5)  {ctx.fillText("5", yariCap * 1.4, yariCap * 1.82);}
+			if (Math.round(saat % 12).toFixed() == 6)  {ctx.fillText("6", yariCap * 0.95, yariCap * 1.98);}
+			if (Math.round(saat % 12).toFixed() == 7)  {ctx.fillText("7", yariCap * 0.52, yariCap * 1.82);}
+			if (Math.round(saat % 12).toFixed() == 8) {ctx.fillText("8", yariCap * 0.16, yariCap * 1.5);}
+			if (Math.round(saat % 12).toFixed() == 9) {ctx.fillText("9", yariCap * 0.04, yariCap);}
+			if (Math.round(saat % 12).toFixed() == 10) {ctx.fillText("10", yariCap * 0.16, yariCap * 0.6);}
+			if (Math.round(saat % 12).toFixed() == 11) {ctx.fillText("11", yariCap * 0.52, yariCap * 0.27);}
+			
+			if (Math.round(dakika / 5).toFixed() == 12) {ctx.fillText("12", yariCap * 0.9, yariCap * 0.15);}
+			if (Math.round(dakika / 5).toFixed() == 1)  {ctx.fillText("1", yariCap * 1.4, yariCap * 0.27);}
+			if (Math.round(dakika / 5).toFixed() == 2)  {ctx.fillText("2", yariCap * 1.76, yariCap * 0.6);}
+			if (Math.round(dakika / 5).toFixed() == 3)  {ctx.fillText("3", yariCap * 1.89, yariCap);}
+			if (Math.round(dakika / 5).toFixed() == 4)  {ctx.fillText("4", yariCap * 1.76, yariCap * 1.5);}
+			if (Math.round(dakika / 5).toFixed() == 5)  {ctx.fillText("5", yariCap * 1.4, yariCap * 1.82);}
+			if (Math.round(dakika / 5).toFixed() == 6)  {ctx.fillText("6", yariCap * 0.95, yariCap * 1.98);}
+			if (Math.round(dakika / 5).toFixed() == 7)  {ctx.fillText("7", yariCap * 0.52, yariCap * 1.82);}
+			if (Math.round(dakika / 5).toFixed() == 8) {ctx.fillText("8", yariCap * 0.16, yariCap * 1.5);}
+			if (Math.round(dakika / 5).toFixed() == 9) {ctx.fillText("9", yariCap * 0.04, yariCap);}
+			if (Math.round(dakika / 5).toFixed() == 10) {ctx.fillText("10", yariCap * 0.16, yariCap * 0.6);}
+			if (Math.round(dakika / 5).toFixed() == 11) {ctx.fillText("11", yariCap * 0.52, yariCap * 0.27);}
+			
+			gostergeGenl.innerHTML = Math.round(saat % 12).toFixed() + ":" + Math.round(dakika / 5).toFixed();
+			
+			saniye = saniye + 1;
+			dakika = dakika + 1 / 60;
+			saat = saat + 1 / 3600;
+			
+			if (saniye > 59) {
+				saniye = 0;
+				if (dakika > 59) {
+				dakika = 0;
+				if (saat > 23) {
+					saat = 0;
+				}
+				}
+			}
+			
+		}, 1000);
+
+	</script>
+</body>
+</html>
